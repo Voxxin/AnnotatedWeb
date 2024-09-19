@@ -33,7 +33,7 @@ public class WebServer {
     }
 
     public void start() {
-//        webServerThread = new Thread(() -> {
+        webServerThread = new Thread(() -> {
             try {
                 System.out.println("Server started on port " + port+"...");
                 AnnotationHandler();
@@ -66,8 +66,8 @@ public class WebServer {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-//        });
-//        webServerThread.start();
+        });
+        webServerThread.start();
     }
 
     private static FormattedRequest getFormattedRequest(Socket clientSocket) throws IOException {
