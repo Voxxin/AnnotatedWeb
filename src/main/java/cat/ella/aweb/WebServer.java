@@ -86,7 +86,7 @@ public class WebServer {
         if (contentLength > 0) {
             char[] buffer = new char[contentLength];
             in.read(buffer);
-            headers.addFirst(String.valueOf(buffer));
+            headers.add(String.valueOf(buffer));
         }
 
         return !headers.isEmpty() ? new FormattedRequest(headers) : null;
