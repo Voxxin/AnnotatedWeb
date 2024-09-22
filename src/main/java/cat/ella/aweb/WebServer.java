@@ -33,7 +33,7 @@ public class WebServer {
     }
 
     public void start() {
-        webServerThread = new Thread(() -> {
+//        webServerThread = new Thread(() -> {
             try {
                 System.out.println("Server started on port " + port+"...");
                 AnnotationHandler();
@@ -45,6 +45,8 @@ public class WebServer {
                     if (formattedRequest == null) continue;
 
                     if (useOnFailure == null) this.useOnFailure = this.openRoutes.stream().filter(r -> r.getAnnotation(Route.class).errorRoute()).findFirst().orElseGet(() -> null);
+
+                    System.out.println(formattedRequest.getBody());
 
                     this.publicFiles.stream()
                             .filter(r -> r.getPaths().contains(formattedRequest.getPath()))
@@ -66,8 +68,8 @@ public class WebServer {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        });
-        webServerThread.start();
+//        });
+//        webServerThread.start();
     }
 
     private static FormattedRequest getFormattedRequest(Socket clientSocket) throws IOException {
@@ -86,7 +88,7 @@ public class WebServer {
         if (contentLength > 0) {
             char[] buffer = new char[contentLength];
             in.read(buffer);
-            headers.add(String.valueOf(buffer));
+            headers.add(0, String.valueOf(buffer));
         }
 
         return !headers.isEmpty() ? new FormattedRequest(headers) : null;

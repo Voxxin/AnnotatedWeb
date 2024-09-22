@@ -12,7 +12,7 @@ import java.lang.annotation.*;
  * @WebService(port = 8080)
  * @Route(path = "/user")
  * @Capture(method = "PUT")
- * public void updateUserDetails(UserRequest request) {
+ * public static void updateUserDetails(UserRequest request) {
  *     // Handle PUT request at /user to update user details
  * }
  * }

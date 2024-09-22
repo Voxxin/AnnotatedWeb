@@ -15,7 +15,7 @@ import java.lang.annotation.*;
  * @WebService(port = 2020)
  * @Route(path = "/")
  * @Capture(method = "POST")
- * public void handlePostRequest(FormattedRequest request) {
+ * public static void handlePostRequest(FormattedRequest request) {
  *     if (request.getBody() != null) {
  *         System.out.println("Request received");
  *     }

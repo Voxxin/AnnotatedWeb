@@ -14,6 +14,8 @@ public class webtest {
     @WebService(port = 8080)
     @Route(path = "/", errorRoute = true)
     public static byte[] errorRoute(FormattedRequest request) {
+        System.out.println(request.getBody());
+
         return new FormattedResponse()
                 .contentType("text/html")
                 .content(FileReader.read(webtest.class, "assets/public/four0four.html"))

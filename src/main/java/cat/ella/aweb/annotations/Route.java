@@ -19,7 +19,7 @@ import java.lang.annotation.*;
  * @WebService(port = 2020)
  * @Route(path = "/api/resource")
  * @Capture(method = "POST")
- * public void handlePostRequest(FormattedRequest request) {
+ * public static void handlePostRequest(FormattedRequest request) {
  *     // Handle POST request at /api/resource
  * }
  * }
@@ -30,7 +30,7 @@ import java.lang.annotation.*;
  * {@code
  * @WebService(port = 2020)
  * @Route(path = "/api/download")
- * public byte[] handleDownloadRequest(FormattedRequest request) {
+ * public static byte[] handleDownloadRequest(FormattedRequest request) {
  *     // Handle request at /api/download and return byte array
  *     return someByteArray;
  * }
