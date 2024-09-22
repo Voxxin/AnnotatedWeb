@@ -30,7 +30,7 @@ import java.lang.annotation.*;
  * {@code
  * @WebService(port = 2020)
  * @Route(path = "/api/download")
- * public byte[] handleDownloadRequest() {
+ * public byte[] handleDownloadRequest(FormattedRequest request) {
  *     // Handle request at /api/download and return byte array
  *     return someByteArray;
  * }

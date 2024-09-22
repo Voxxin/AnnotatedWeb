@@ -28,7 +28,7 @@ public class WebServer {
     private ServerSocket webServer;
     private Thread webServerThread;
 
-    WebServer(int port) {
+    public WebServer(int port) {
         this.port = port;
     }
 
