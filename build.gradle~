@@ -22,7 +22,7 @@ dependencies {
     implementation("org.reflections:reflections:0.10.2")
     implementation("ch.qos.logback:logback-classic:1.5.6")
 
-    implementation 'com.github.Voxxin:Reflections:44e82bc208'
+    implementation 'com.github.Voxxin:Reflections:fe8577c07a'
 }
 
 processResources {

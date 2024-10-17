@@ -45,9 +45,7 @@ public class WebServer {
                     if (formattedRequest == null) continue;
 
                     if (useOnFailure == null) this.useOnFailure = this.openRoutes.stream().filter(r -> r.getAnnotation(Route.class).errorRoute()).findFirst().orElseGet(() -> null);
-
-                    System.out.println(formattedRequest.getBody());
-
+                    
                     this.publicFiles.stream()
                             .filter(r -> r.getPaths().contains(formattedRequest.getPath()))
                             .findAny()
@@ -103,7 +101,7 @@ public class WebServer {
         cat.ella.Reflections newReflections = new cat.ella.Reflections(getClass());
 
         for (Method method : newReflections.getMethodsAnnotatedWith(WebService.class)) {
-            System.out.println(method.getAnnotation(Route.class).path());
+            System.out.println(method);
 
             if (method.isAnnotationPresent(Route.class)
                     && Arrays.stream(method.getParameters()).allMatch(p -> FormattedRequest.class.isAssignableFrom(p.getType()))
