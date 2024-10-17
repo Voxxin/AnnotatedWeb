@@ -33,7 +33,7 @@ public class WebServer {
     }
 
     public void start() {
-//        webServerThread = new Thread(() -> {
+        webServerThread = new Thread(() -> {
             try {
                 System.out.println("Server started on port " + port+"...");
                 AnnotationHandler();
@@ -68,8 +68,8 @@ public class WebServer {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-//        });
-//        webServerThread.start();
+        });
+        webServerThread.start();
     }
 
     private static FormattedRequest getFormattedRequest(Socket clientSocket) throws IOException {
@@ -103,6 +103,8 @@ public class WebServer {
         cat.ella.Reflections newReflections = new cat.ella.Reflections(getClass());
 
         for (Method method : newReflections.getMethodsAnnotatedWith(WebService.class)) {
+            System.out.println(method);
+
             if (method.isAnnotationPresent(Route.class)
                     && Arrays.stream(method.getParameters()).allMatch(p -> FormattedRequest.class.isAssignableFrom(p.getType()))
                     && byte[].class.isAssignableFrom(method.getReturnType())
