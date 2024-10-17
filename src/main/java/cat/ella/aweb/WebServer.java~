@@ -101,7 +101,7 @@ public class WebServer {
 
     void AnnotationHandler() {
         cat.ella.Reflections newReflections = new cat.ella.Reflections(getClass());
-
+        
         for (Method method : newReflections.getMethodsAnnotatedWith(WebService.class)) {
             if (method.isAnnotationPresent(Route.class)
                     && Arrays.stream(method.getParameters()).allMatch(p -> FormattedRequest.class.isAssignableFrom(p.getType()))
